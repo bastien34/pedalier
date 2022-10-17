@@ -1,0 +1,7 @@
+---
+OfficeToolBar:
+
+  start_monitor:
+    title: Start Footswitch Monitor
+    context: com.sun.star.text.TextDocument
+    icon: rdt_pedalier.svg

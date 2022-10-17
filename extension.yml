@@ -1,0 +1,7 @@
+---
+version: 0.1.0
+extension_name: footswitch_monitor  # no space
+file_extension: oxt
+lib: com.company.footswitch_monitor
+macros_directory: macros
+menu_name: RDT

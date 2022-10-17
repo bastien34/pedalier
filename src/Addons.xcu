@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:component-data xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:oor="http://openoffice.org/2001/registry" oor:name="Addons" oor:package="org.openoffice.Office">
+	<node oor:name="AddonUI">
+		<node oor:name="OfficeToolBar">
+			<node oor:name="footswitch_monitor.OfficeToolBar" oor:op="replace">
+				<node oor:op="replace" oor:name="N001">
+					<prop oor:type="xs:string" oor:name="Context">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:type="xs:string" oor:name="Title">
+						<value xml:lang="fr">Start Footswitch Monitor</value>
+					</prop>
+					<prop oor:type="xs:string" oor:name="URL">
+						<value>vnd.sun.star.script:footswitch_monitor.oxt|python|footswitch_monitor.py$start_monitor?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:type="xs:string" oor:name="Target">
+						<value>_self</value>
+					</prop>
+				</node>
+			</node>
+		</node>
+		<node oor:name="Images">
+			<node oor:name="com.company.footswitch_monitor.N001" oor:op="replace">
+				<prop oor:type="xs:string" oor:name="URL">
+					<value>vnd.sun.star.script:footswitch_monitor.oxt|python|footswitch_monitor.py$start_monitor?language=Python&amp;location=user:uno_packages</value>
+				</prop>
+				<node oor:name="UserDefinedImages">
+					<prop oor:type="xs:string" oor:name="ImageSmallURL">
+						<value>%origin%/assets/rdt_pedalier.svg</value>
+					</prop>
+				</node>
+			</node>
+		</node>
+	</node>
+</oor:component-data>

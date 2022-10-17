@@ -1,0 +1,16 @@
+<description xmlns="http://openoffice.org/extensions/description/2006" xmlns:ns1="http://www.w3.org/1999/xlink">
+    <identifier value="footswitch_monitor" />
+    <version value="0.1.0" />
+    <display-name>
+        <name lang="en-GB">Footswitch monitor</name>
+     </display-name>
+	<icon>
+		<default ns1:href="assets/logo.svg" />
+	</icon>
+    <publisher>
+      <name lang="fr" ns1:href="https://palaceweb.fr /">PalaceDev</name>
+    </publisher>
+    <extension-description>
+        <src lang="en-GB" ns1:href="description/description-en.txt" />
+     </extension-description>
+</description>

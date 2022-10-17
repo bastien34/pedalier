@@ -11,7 +11,7 @@
 						<value xml:lang="fr">Start Footswitch Monitor</value>
 					</prop>
 					<prop oor:type="xs:string" oor:name="URL">
-						<value>vnd.sun.star.script:footswitch_monitor.oxt|python|footswitch_monitor.py$start_monitor?language=Python&amp;location=user:uno_packages</value>
+						<value>vnd.sun.star.script:footswitch_monitor.oxt|macros|footswitch_monitor.py$start_monitor?language=Python&amp;location=user:uno_packages</value>
 					</prop>
 					<prop oor:type="xs:string" oor:name="Target">
 						<value>_self</value>
@@ -22,7 +22,7 @@
 		<node oor:name="Images">
 			<node oor:name="com.company.footswitch_monitor.N001" oor:op="replace">
 				<prop oor:type="xs:string" oor:name="URL">
-					<value>vnd.sun.star.script:footswitch_monitor.oxt|python|footswitch_monitor.py$start_monitor?language=Python&amp;location=user:uno_packages</value>
+					<value>vnd.sun.star.script:footswitch_monitor.oxt|macros|footswitch_monitor.py$start_monitor?language=Python&amp;location=user:uno_packages</value>
 				</prop>
 				<node oor:name="UserDefinedImages">
 					<prop oor:type="xs:string" oor:name="ImageSmallURL">

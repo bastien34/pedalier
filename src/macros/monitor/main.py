@@ -11,7 +11,6 @@ import time
 from player import Player
 from config import get_footswitch_keys, get_footswitch_device
 
-
 CONFIG_DIR = os.path.expanduser("~/.config/rdt")
 CONFIG_FILE = os.path.join(CONFIG_DIR, 'rdt.ini')
 
@@ -179,14 +178,13 @@ class FootswitchMonitor(wx.Frame):
             self.player = None
             self.SetStatusText(VLC_NOT_READY_MSG)
 
-    def OnFootswitchEvent(self, evt):
-        pedal = ''
+    def OnFootswitchEvent(self, event):
         try:
-            if evt.code == left_k:
+            if event.code == left_k:
                 self.player.rewind()
-            elif evt.code == center_k:
+            elif event.code == center_k:
                 self.player.play_pause()
-            elif evt.code == right_k:
+            elif event.code == right_k:
                 self.player.forward()
         except Exception:
             self.connect_vlc()
@@ -211,9 +209,10 @@ class FootswitchMonitor(wx.Frame):
         while self.active:
             async for ev in device.async_read_loop():
                 if ev.type == 1:
-                    event = footswitch_event(code=ev.code)
-                    wx.PostEvent(self, event)
                     self.SetStatusFootPressed(ev)
+                    if ev.value == 1:
+                        event = footswitch_event(code=ev.code)
+                        wx.PostEvent(self, event)
 
 
 async def main_async():

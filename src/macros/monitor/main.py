@@ -7,9 +7,13 @@ from wxasync import WxAsyncApp, StartCoroutine
 import asyncio
 import subprocess
 import time
+import logging
 
 from player import Player
 from config import get_footswitch_keys, get_footswitch_device
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger('PEDALIER')
 
 CONFIG_DIR = os.path.expanduser("~/.config/rdt")
 CONFIG_FILE = os.path.join(CONFIG_DIR, 'rdt.ini')
@@ -198,19 +202,30 @@ class FootswitchMonitor(wx.Frame):
 
     async def footswitch_callback(self):
         """
-        Key event type: 1
+        type: 1 (keycode)
         value:
             0 = key_up
             1 = key_down
             2 = key_hold
+        code: code of the key (eg. 48 for left)
         """
         device = get_footswitch_device()
         device.grab()
         while self.active:
             async for ev in device.async_read_loop():
                 if ev.type == 1:
+                    logger.debug(f"Key code: {ev.code} key value (up, down, hold): {ev.value}")
                     self.SetStatusFootPressed(ev)
-                    if ev.value == 1:
+                    if ev.value == 1 and ev.code == center_k:
+                        # we don't want the signal sent twice or more in
+                        # case of playpause command, so we create the event
+                        # only when key is pressed.
+                        event = footswitch_event(code=ev.code)
+                        wx.PostEvent(self, event)
+                    elif ev.code in (left_k, right_k):
+                        # left & right foot can receive multiple signals.
+                        # It means that while the pedal is hold, the signal
+                        # continue which allow to back or forward longer.
                         event = footswitch_event(code=ev.code)
                         wx.PostEvent(self, event)
 

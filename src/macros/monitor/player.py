@@ -35,7 +35,6 @@ class Player:
                 print('failed')
         else:
             self.interface.PlayPause()
-            print('pp')
 
     def forward(self, value=FORWARD_DELAY):
         self.interface.Seek(value)

@@ -77,8 +77,7 @@ class ConfigDialog(wx.Dialog):
         pnl.SetSizer(vbox)
 
     def footswitch_setup_callback(self, evt):
-        print(evt.code)
-        print('renard')
+        logger.debug(evt.code)
 
     def OnClose(self, e):
         self.Destroy()

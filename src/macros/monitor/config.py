@@ -1,6 +1,10 @@
 import os
 from configobj import ConfigObj
 from evdev import InputDevice, list_devices
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger('PEDALIER')
 
 CONFIG_DIR = os.path.expanduser("~/.config/rdt")
 CONFIG_FILE = os.path.join(CONFIG_DIR, 'rdt.ini')
@@ -44,6 +48,7 @@ def get_footswitch_keys():
 def get_footswitch_device():
     devices = [InputDevice(path) for path in list_devices()]
     for device in devices:
+        logger.debug(f"device found: {device}")
         if 'keyboard' in device.name.lower():
             device = device
             return device

@@ -1,5 +1,5 @@
 ---
-version: 0.1.1
+version: 0.1.3
 extension_name: footswitch_monitor  # no space
 file_extension: oxt
 lib: com.company.footswitch_monitor

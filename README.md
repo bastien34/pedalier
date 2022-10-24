@@ -12,6 +12,15 @@ Dependencies
     pip install evdev
     pip install configobj
 
+Udev rules & user group
+-----------------------
+
+Run the script `./install.sh` to create new rules for the foot device
+switcher to be usable.
+
+Be sure the user belongs to `plugdev` group.
+
+     sudo adduser username plugdev
 
 
 Extension development

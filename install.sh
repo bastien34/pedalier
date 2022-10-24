@@ -2,3 +2,4 @@ echo 'ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct
 echo 'SUBSYSTEM=="input", KERNEL=="event*", MODE="0660", OPTIONS+="last_rule"' >> /etc/udev/rules.d/51-pedalier-permissions.rules
 udevadm control --reload-rules
 
+# adduser username plugdev
